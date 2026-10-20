@@ -1,17 +1,74 @@
+
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>profil saya </title>
-    <link rel="stylesheet" href="style.css">
-  </head>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f4ff">
+  <title>Profil Saya</title>
+
+  <!-- Menghubungkan HTML dengan file CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
-  <div class="kartu-profil">
-    <img src="Mixue gemoy 🥰.jpg" alt="">
-    <h1>nama lengkap anda</h1>
-    <p>siswa smk yang tertarik dengan teknologi</p>
-    <a href="https://www.instagram.com/e_n4me?psln=MTh6Mm5keGhwNmwyYQ%3D%3D">kunjungi instagram saya </a>
-    <button id="sapa"> sapa saya </button>
-  </div>
-<script src-"script.js"></script>  
+  <main class="page-shell">
+    <article class="profile-card" aria-labelledby="profile-name">
+
+      <!-- Bagian atas kartu -->
+      <div class="card-cover" aria-hidden="true">
+        <span class="cover-orb cover-orb-one"></span>
+        <span class="cover-orb cover-orb-two"></span>
+        <span class="cover-label">HELLO, THERE!</span>
+      </div>
+
+      <div class="profile-content">
+
+        <!-- Foto profil -->
+        <div class="photo-frame">
+          <img
+            class="profile-photo"
+            src="Mixue gemoy 🥰.jpg"
+            alt="Foto profil saya"
+          >
+        </div>
+
+        <p class="eyebrow">PROFIL SAYA</p>
+
+        <h1 id="profile-name">Nama Lengkap Anda</h1>
+
+        <p class="profile-description">
+          Siswa SMK yang tertarik dengan teknologi
+        </p>
+
+        <div class="profile-divider" aria-hidden="true"></div>
+
+        <!-- Tombol Instagram dan sapaan -->
+        <div class="profile-actions">
+          <a
+            class="instagram-link"
+            href="https://www.instagram.com/e_n4me?psln=MTh6Mm5keGhwNmwyYQ%3D%3D"
+            aria-label="Kunjungi Instagram saya"
+          >
+            <span class="instagram-icon" aria-hidden="true">◎</span>
+            <span>Kunjungi Instagram</span>
+            <span class="external-arrow" aria-hidden="true">↗</span>
+          </a>
+
+          <button class="greet-button" id="sapa" type="button">
+            Sapa Saya <span aria-hidden="true">✦</span>
+          </button>
+        </div>
+
+        <p class="card-footer">
+          Belajar · Berkarya · Bertumbuh
+        </p>
+      </div>
+    </article>
+
+    <p class="page-note">Senang berkenalan dengan Anda.</p>
+  </main>
+
+  <!-- Menghubungkan HTML dengan file JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>
