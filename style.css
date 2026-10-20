@@ -1,23 +1,315 @@
-body{
-    background-color: antiquewhite;
-    font-family: 'Times New Roman', Times, serif;
-    color: violet;
+
+/* Pengaturan dasar */
+* {
+  box-sizing: border-box;
 }
 
-kartu profil {
-    width: 300px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: rgb(226, 177, 27);
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+:root {
+  --purple: #6846e8;
+  --purple-dark: #4e32bd;
+  --ink: #24243a;
+  --muted: #77778d;
+  --surface: #ffffff;
 }
 
-kartu profil img {
-    width: 150px;
-    border-radius: 50px;
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(
+      circle at 12% 15%,
+      rgba(184, 169, 255, 0.28),
+      transparent 27rem
+    ),
+    radial-gradient(
+      circle at 88% 82%,
+      rgba(159, 220, 255, 0.25),
+      transparent 25rem
+    ),
+    #f7f7fc;
 }
 
-kartu profil{
-    text-align: center;
+/* Memposisikan kartu di tengah halaman */
+.page-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px 24px;
+}
+
+/* Kartu profil utama */
+.profile-card {
+  width: 100%;
+  max-width: 410px;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid rgba(105, 83, 180, 0.11);
+  border-radius: 26px;
+  box-shadow: 0 24px 70px rgba(49, 39, 105, 0.12);
+  animation: appear 650ms ease both;
+}
+
+/* Bagian atas dengan gradasi */
+.card-cover {
+  position: relative;
+  height: 142px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 25px 24px;
+  background: linear-gradient(
+    130deg,
+    #4931b9 0%,
+    #7656ed 53%,
+    #9a8aff 100%
+  );
+}
+
+.card-cover::after {
+  position: absolute;
+  right: -35px;
+  bottom: -87px;
+  width: 235px;
+  height: 160px;
+  content: "";
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 50%;
+  transform: rotate(-22deg);
+}
+
+/* Tulisan dekoratif di bagian atas */
+.cover-label {
+  position: relative;
+  z-index: 1;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+}
+
+/* Lingkaran dekorasi */
+.cover-orb {
+  position: absolute;
+  display: block;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+}
+
+.cover-orb-one {
+  top: -43px;
+  left: 28px;
+  width: 125px;
+  height: 125px;
+}
+
+.cover-orb-two {
+  bottom: -57px;
+  left: 91px;
+  width: 145px;
+  height: 145px;
+}
+
+/* Bagian isi profil */
+.profile-content {
+  padding: 0 30px 27px;
+  text-align: center;
+}
+
+/* Bingkai foto */
+.photo-frame {
+  width: 116px;
+  height: 116px;
+  display: grid;
+  place-items: center;
+  margin: -58px auto 18px;
+  position: relative;
+  z-index: 2;
+  background: var(--surface);
+  border: 5px solid var(--surface);
+  border-radius: 50%;
+  box-shadow: 0 7px 24px rgba(48, 37, 104, 0.16);
+}
+
+.profile-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  background: #eeebff;
+}
+
+/* Judul dan deskripsi */
+.eyebrow {
+  margin: 0 0 9px;
+  color: var(--purple);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+}
+
+#profile-name {
+  margin: 0;
+  font-size: clamp(23px, 5vw, 28px);
+  line-height: 1.25;
+  letter-spacing: -0.8px;
+  overflow-wrap: anywhere;
+}
+
+.profile-description {
+  margin: 11px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* Garis pemisah */
+.profile-divider {
+  width: 44px;
+  height: 3px;
+  margin: 23px auto;
+  border-radius: 99px;
+  background: linear-gradient(90deg, #907aff, #c3b8ff);
+}
+
+/* Susunan tombol */
+.profile-actions {
+  display: grid;
+  gap: 11px;
+}
+
+.instagram-link,
+.greet-button {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 12px 16px;
+  border-radius: 13px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+/* Tombol Instagram */
+.instagram-link {
+  color: var(--purple-dark);
+  border: 1px solid #e5e0ff;
+  background: #faf9ff;
+}
+
+.instagram-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.external-arrow {
+  margin-left: auto;
+  font-size: 16px;
+}
+
+/* Tombol sapaan */
+.greet-button {
+  width: 100%;
+  border: 0;
+  color: #ffffff;
+  background: linear-gradient(
+    110deg,
+    var(--purple-dark),
+    var(--purple)
+  );
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(104, 70, 232, 0.22);
+}
+
+/* Efek saat tombol disentuh atau diarahkan */
+.instagram-link:hover,
+.greet-button:hover {
+  transform: translateY(-2px);
+}
+
+.instagram-link:hover {
+  background: #f1eeff;
+}
+
+.greet-button:hover {
+  box-shadow: 0 11px 22px rgba(104, 70, 232, 0.3);
+}
+
+.greet-button:active {
+  transform: translateY(0);
+}
+
+/* Penanda fokus untuk navigasi keyboard */
+.instagram-link:focus-visible,
+.greet-button:focus-visible {
+  outline: 3px solid #b9adff;
+  outline-offset: 3px;
+}
+
+/* Tulisan bagian bawah */
+.card-footer {
+  margin: 23px 0 0;
+  color: #a0a0b3;
+  font-size: 10px;
+  letter-spacing: 1.1px;
+}
+
+.page-note {
+  margin: 19px 0 0;
+  color: #9291a7;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Animasi ketika halaman dibuka */
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Penyesuaian layar HP */
+@media (max-width: 420px) {
+  .page-shell {
+    padding: 25px 14px 20px;
+  }
+
+  .profile-content {
+    padding-right: 22px;
+    padding-left: 22px;
+  }
+
+  .card-cover {
+    height: 128px;
+  }
+}
+
+/* Mengurangi animasi jika diminta oleh perangkat pengguna */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
 }
